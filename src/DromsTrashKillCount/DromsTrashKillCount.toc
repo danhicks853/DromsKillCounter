@@ -1,0 +1,5 @@
+## Interface: 30300
+## Title: DromsTrashKillCount
+## Notes: Counts trash mob kills in instances and shows last 3 runs.
+## Version: 1.0.0
+DromsTrashKillCount.lua
