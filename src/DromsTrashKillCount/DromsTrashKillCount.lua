@@ -20,6 +20,8 @@ frame:SetScript("OnDragStop", function(self) self:StopMovingOrSizing() end)
 local trashCount = 0
 
 frame:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+frame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
 frame:SetScript("OnEvent", function(self, event, ...)
     if event == "COMBAT_LOG_EVENT_UNFILTERED" then
@@ -28,6 +30,14 @@ frame:SetScript("OnEvent", function(self, event, ...)
             trashCount = trashCount + 1
             text:SetText(tostring(trashCount))
         end
+    end
+    if event == "ZONE_CHANGED_NEW_AREA" then
+        trashCount = 0
+        text:SetText(tostring(trashCount))
+    end
+    if event == "PLAYER_ENTERING_WORLD" then
+        trashCount = 0
+        text:SetText(tostring(trashCount))
     end
 end)
 
